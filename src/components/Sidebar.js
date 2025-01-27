@@ -102,6 +102,9 @@ const Sidebar = ({ onToggle }) => {
             <li className="px-6 py-3 hover:bg-gray-700 rounded-t-lg cursor-pointer transition duration-200">
               <Link to="/jobs">Jobs</Link>
             </li>
+            <li className="px-6 py-3 hover:bg-gray-700 rounded-t-lg cursor-pointer transition duration-200">
+              <Link to="/joblist">Job Lists</Link>
+            </li>
             <li className="px-6 py-3 hover:bg-gray-700 cursor-pointer transition duration-200">
               Candidates
             </li>
