@@ -4,6 +4,8 @@ import Sidebar from "./components/Sidebar";
 import TopNavbar from "./components/TopNavbar";
 import Jobs from "./pages/jobs";
 import JobList from "./pages/jobList";
+import JobCandiate from "./pages/ListCandidate"
+import ListCandidate from "./pages/ListCandidate";
 
 const App = () => {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
@@ -33,6 +35,7 @@ const App = () => {
               <Route path="/" element={<h2 className="text-2xl font-semibold">Welcome to the Dashboard!</h2>} />
               <Route path="/jobs" element={<Jobs />} />
               <Route path="/joblist" element={<JobList />} />
+              <Route path="/listcandidate" element={<ListCandidate />} />
             </Routes>
           </main>
         </div>

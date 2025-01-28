@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 
-// Sample data for jobs (previously products)
+// Sample data for candidates (previously products)
 const sampleProducts = [
-  { id: 1, name: "Junior Developer", description: "This is the description for Junior Developer job.", count: 5 },
-  { id: 2, name: "Web Designing", description: "This is the description for Web Designing job.", count: 10 },
-  { id: 3, name: "UX Designing", description: "This is the description for UX Designing job.", count: 3 },
-  // Add more jobs as needed
+  { id: 1, name: "saru", description: "This is the description for Junior Developer job.", count: 5, position:"junior software developer" },
+  { id: 2, name: "pooja", description: "This is the description for Web Designing job.", count:1, position:"web designing"},
+  { id: 3, name: "shubha", description: "This is the description for UX Designing job.", count:5,position:"ux designing"},
+  // Add more candidates as needed
 ];
 
-const JobList = () => {
+const ListCandidate = () => {
   const [formData, setFormData] = useState({});
   const [products, setProducts] = useState(sampleProducts);
 
@@ -26,13 +26,13 @@ const JobList = () => {
     <form className="p-6 space-y-6" onSubmit={handleSubmit}>
       {/* Job Details Section */}
       <div className="border p-4 rounded-lg">
-        <h2 className="text-lg font-bold mb-4">Job List</h2>
+        <h2 className="text-lg font-bold mb-4">Candidate List</h2>
       </div>
       
       {/* Add Product Button (Updated color to black) */}
       <div className="flex justify-end mb-6">
         <button className="bg-black text-white py-2 px-4 rounded hover:bg-gray-800 transition duration-300 ease-in-out">
-          + Add job
+          + Add Candidate
         </button>
       </div>
 
@@ -49,7 +49,8 @@ const JobList = () => {
               <h3 className="text-xl font-semibold text-gray-800">{product.name}</h3>
               
               {/* Job Count (Center) */}
-              <div className="text-lg text-gray-600">{product.count}</div>
+              <div className="text-lg text-gray-600">{product.position
+                }</div>
               
               {/* Buttons (Right Side) */}
               <div className="flex space-x-4">
@@ -75,4 +76,4 @@ const JobList = () => {
   );
 };
 
-export default JobList;
+export default ListCandidate;
