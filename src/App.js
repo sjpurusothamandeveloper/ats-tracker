@@ -6,7 +6,7 @@ import Jobs from "./pages/jobs";
 import JobList from "./pages/jobList";
 import JobCandiate from "./pages/ListCandidate"
 import ListCandidate from "./pages/ListCandidate";
-
+import Interview from "./pages/Interview";
 const App = () => {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
 
@@ -36,6 +36,7 @@ const App = () => {
               <Route path="/jobs" element={<Jobs />} />
               <Route path="/joblist" element={<JobList />} />
               <Route path="/listcandidate" element={<ListCandidate />} />
+              <Route path="/interview" element={<Interview />} />
             </Routes>
           </main>
         </div>

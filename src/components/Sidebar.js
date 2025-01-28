@@ -112,6 +112,7 @@ const Sidebar = ({ onToggle }) => {
               Submission
             </li>
             <li className="px-6 py-3 hover:bg-gray-700 rounded-b-lg cursor-pointer transition duration-200">
+            <Link to="/interview">interview</Link>
               Interviews
             </li>
           </ul>
