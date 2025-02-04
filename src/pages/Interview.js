@@ -2,9 +2,9 @@ import React, { useState } from "react";
 
 // Sample data for candidates (previously products)
 const sampleProducts = [
-  { id: 1, name: "interview with saru", description: "This is the description for Junior Developer job.", count: 5, position:"junior software developer" },
-  { id: 2, name: "interview with pooja", description: "This is the description for Web Designing job.", count:1, position:"web designing"},
-  { id: 3, name: "interview with shubha", description: "This is the description for UX Designing job.", count:5,position:"ux designing"},
+  { id: 1, name: "Interview with Saru", description: "This is the description for Junior Developer job.", count: 5, position:"Junior Software Developer" },
+  { id: 2, name: "Interview with Pooja", description: "This is the description for Web Designing job.", count:1, position:"Web Designing"},
+  { id: 3, name: "Interview with Shubha", description: "This is the description for UX Designing job.", count:5,position:"UX Designing"},
   // Add more candidates as needed
 ];
 
@@ -25,14 +25,14 @@ const Interview = () => {
   return (
     <form className="p-6 space-y-6" onSubmit={handleSubmit}>
       {/* Job Details Section */}
-      <div className="border p-4 rounded-lg">
-        <h2 className="text-lg font-bold mb-4">interview List</h2>
-      </div>
+      {/* <div className="border p-4 rounded-lg"> */}
+        <h2 className="text-lg font-bold mb-4">Interviews</h2>
+      {/* </div> */}
       
       {/* Add Product Button (Updated color to black) */}
       <div className="flex justify-end mb-6">
-        <button className="bg-black text-white py-2 px-4 rounded hover:bg-gray-800 transition duration-300 ease-in-out">
-          + Add interview
+        <button className="bg-black text-white py-1 px-3 rounded hover:bg-gray-800 transition duration-300 ease-in-out">
+          + Add Interview
         </button>
       </div>
 
@@ -49,18 +49,18 @@ const Interview = () => {
               <h3 className="text-xl font-semibold text-gray-800">{product.name}</h3>
               
               {/* Job Count (Center) */}
-              <div className="text-lg text-gray-600">{product.position
-                }</div>
+              <div className="text-lg text-gray-600">{product.position}</div>
               
               {/* Buttons (Right Side) */}
               <div className="flex space-x-4">
                 {/* View Button (Small size) */}
-                <button className="bg-black text-white py-1 px-3 text-sm rounded hover:bg-gray-800 transition duration-300 ease-in-out">
+                <button className=" text-black py-1 px-3 text-sm underline hover:bg-gray-800 transition duration-300 ease-in-out">
                   View
                 </button>
+
                 
                 {/* Edit Button (Small size) */}
-                <button className="bg-black text-white py-1 px-3 text-sm rounded hover:bg-gray-800 transition duration-300 ease-in-out">
+                <button className=" text-black py-1 px-3 text-sm underline hover:bg-gray-800 transition duration-300 ease-in-out">
                   Edit
                 </button>
               </div>
