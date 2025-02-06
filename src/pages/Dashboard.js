@@ -5,7 +5,6 @@ import {
 } from "recharts";
 import { FaUsers, FaShoppingCart, FaDollarSign, FaChartLine } from "react-icons/fa";
 
-// Sample Data for Charts
 const lineChartData = [
   { name: "Jan", users: 400 },
   { name: "Feb", users: 700 },
@@ -29,9 +28,7 @@ const Dashboard = () => {
         Welcome to Dashboard
       </h2>
 
-      {/* Cards Section */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
-        {/* Users */}
         <div className="bg-white p-4 rounded-lg shadow-md flex items-center space-x-4">
           <FaUsers className="text-blue-600 text-3xl" />
           <div>
@@ -40,7 +37,6 @@ const Dashboard = () => {
           </div>
         </div>
 
-        {/* Orders */}
         <div className="bg-white p-4 rounded-lg shadow-md flex items-center space-x-4">
           <FaShoppingCart className="text-green-600 text-3xl" />
           <div>
@@ -49,7 +45,6 @@ const Dashboard = () => {
           </div>
         </div>
 
-        {/* Revenue */}
         <div className="bg-white p-4 rounded-lg shadow-md flex items-center space-x-4">
           <FaDollarSign className="text-yellow-500 text-3xl" />
           <div>
@@ -58,7 +53,6 @@ const Dashboard = () => {
           </div>
         </div>
 
-        {/* Growth */}
         <div className="bg-white p-4 rounded-lg shadow-md flex items-center space-x-4">
           <FaChartLine className="text-purple-600 text-3xl" />
           <div>
@@ -68,7 +62,6 @@ const Dashboard = () => {
         </div>
       </div>
 
-      {/* Charts Section */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Line Chart */}
         <div className="bg-white p-4 rounded-lg shadow-md">

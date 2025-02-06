@@ -15,6 +15,7 @@ const Sidebar = ({ onToggle }) => {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [isRecruitmentSubmenuOpen, setIsRecruitmentSubmenuOpen] = useState(false);
   const [isJobsSubmenuOpen, setIsJobsSubmenuOpen] = useState(false);
+  const [isCandidatesSubmenuOpen, setIsCandidatesSubmenuOpen] = useState(false);
   const sidebarRef = useRef(null);
 
   const toggleSidebar = () => {
@@ -25,11 +26,16 @@ const Sidebar = ({ onToggle }) => {
   const toggleRecruitmentSubmenu = () => {
     setIsRecruitmentSubmenuOpen((prev) => !prev);
     setIsJobsSubmenuOpen(false); // Close jobs submenu when opening recruitment
+    setIsCandidatesSubmenuOpen(false); // Close candidates submenu when opening recruitment
   };
 
   const toggleJobsSubmenu = () => {
     setIsJobsSubmenuOpen((prev) => !prev);
   };
+
+  const toggleCandidatesSubMenu = () => {
+    setIsCandidatesSubmenuOpen((prev) => !prev);
+  }
 
   // Close menus when clicking outside
   useEffect(() => {
@@ -37,6 +43,7 @@ const Sidebar = ({ onToggle }) => {
       if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
         setIsRecruitmentSubmenuOpen(false);
         setIsJobsSubmenuOpen(false);
+        setIsCandidatesSubmenuOpen(false);
       }
     };
 
@@ -113,7 +120,18 @@ const Sidebar = ({ onToggle }) => {
                   }`}
                 />
               </li>
-              <Link to="/candidates" className="block">
+              <li
+                className="flex justify-between items-center px-6 py-3 hover:bg-gray-700 cursor-pointer transition duration-200"
+                onClick={toggleCandidatesSubMenu}
+              >
+                <span>Candidates</span>
+                <FaChevronRight
+                  className={`text-sm transform transition-transform ${
+                    isCandidatesSubmenuOpen ? "rotate-90" : ""
+                  }`}
+                />
+              </li>
+              {/* <Link to="/candidates" className="block">
                 <li className="px-6 py-3 hover:bg-gray-700 cursor-pointer transition duration-200">
                   Candidates
                 </li>
@@ -127,7 +145,7 @@ const Sidebar = ({ onToggle }) => {
                 <li className="px-6 py-3 hover:bg-gray-700 cursor-pointer transition duration-200">
                   Interviews
                 </li>
-              </Link>
+              </Link> */}
 
               {/* Jobs Submenu */}
               {isJobsSubmenuOpen && (
@@ -138,21 +156,49 @@ const Sidebar = ({ onToggle }) => {
                     </li>
                   </Link>
 
-                  <Link to="/jobs/active" className="block">
+                  <Link to="/activejobs" className="block">
                     <li className="px-6 py-3 hover:bg-gray-700 cursor-pointer transition duration-200">
                       Active Jobs
                     </li>
                   </Link>
 
-                  <Link to="/jobs/inactive" className="block">
+                  <Link to="/inactivejobs" className="block">
                     <li className="px-6 py-3 hover:bg-gray-700 cursor-pointer transition duration-200">
                       Inactive Jobs
                     </li>
                   </Link>
 
-                  <Link to="/jobs/recent" className="block">
+                  <Link to="/recentjobs" className="block">
                     <li className="px-6 py-3 hover:bg-gray-700 rounded-b-lg cursor-pointer transition duration-200">
                       Recent Jobs
+                    </li>
+                  </Link>
+                </ul>
+              )}
+
+              {isCandidatesSubmenuOpen && (
+                <ul className="absolute left-full top-32 bg-gray-900 text-white shadow-lg rounded-lg w-48 p-2 z-50 opacity-100">
+                  <Link to="/candidatelist" className="block">
+                    <li className="px-6 py-3 hover:bg-gray-700 cursor-pointer transition duration-200">
+                      All Candidates
+                    </li>
+                  </Link>
+
+                  <Link to="/activecandidates" className="block">
+                    <li className="px-6 py-3 hover:bg-gray-700 cursor-pointer transition duration-200">
+                      Active Candidates
+                    </li>
+                  </Link>
+
+                  <Link to="/inactivecandidates" className="block">
+                    <li className="px-6 py-3 hover:bg-gray-700 cursor-pointer transition duration-200">
+                      Inactive Candidates
+                    </li>
+                  </Link>
+
+                  <Link to="/recentcandidates" className="block">
+                    <li className="px-6 py-3 hover:bg-gray-700 rounded-b-lg cursor-pointer transition duration-200">
+                      Recent Candidates
                     </li>
                   </Link>
                 </ul>
