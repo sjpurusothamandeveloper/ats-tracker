@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   FaBars,
   FaHome,
@@ -13,9 +13,9 @@ import { Link } from "react-router-dom";
 
 const Sidebar = ({ onToggle }) => {
   const [isCollapsed, setIsCollapsed] = useState(false);
-  const [isRecruitmentSubmenuOpen, setIsRecruitmentSubmenuOpen] =
-    useState(false);
+  const [isRecruitmentSubmenuOpen, setIsRecruitmentSubmenuOpen] = useState(false);
   const [isJobsSubmenuOpen, setIsJobsSubmenuOpen] = useState(false);
+  const sidebarRef = useRef(null);
 
   const toggleSidebar = () => {
     setIsCollapsed(!isCollapsed);
@@ -24,14 +24,31 @@ const Sidebar = ({ onToggle }) => {
 
   const toggleRecruitmentSubmenu = () => {
     setIsRecruitmentSubmenuOpen((prev) => !prev);
+    setIsJobsSubmenuOpen(false); // Close jobs submenu when opening recruitment
   };
 
   const toggleJobsSubmenu = () => {
     setIsJobsSubmenuOpen((prev) => !prev);
   };
 
+  // Close menus when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+        setIsRecruitmentSubmenuOpen(false);
+        setIsJobsSubmenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
     <nav
+      ref={sidebarRef}
       className={`h-screen fixed top-0 left-0 bg-black text-white shadow-xl transition-all duration-300 ${
         isCollapsed ? "w-16" : "w-64"
       } rounded-r-3xl`}
@@ -58,26 +75,6 @@ const Sidebar = ({ onToggle }) => {
           </li>
         </Link>
 
-        {/* <Link to="/analytics" className="block">
-          <li className="flex items-center px-4 py-3 hover:bg-gray-700 rounded-lg cursor-pointer transition duration-300">
-            <FaChartBar className="text-xl hover:text-green-400" />
-            {!isCollapsed && (
-              <span className="ml-4 text-lg hover:text-green-400">
-                Analytics
-              </span>
-            )}
-          </li>
-        </Link> */}
-
-        {/* <Link to="/reports" className="block">
-          <li className="flex items-center px-4 py-3 hover:bg-gray-700 rounded-lg cursor-pointer transition duration-300">
-            <FaFileAlt className="text-xl hover:text-green-400" />
-            {!isCollapsed && (
-              <span className="ml-4 text-lg hover:text-green-400">Reports</span>
-            )}
-          </li>
-        </Link> */}
-
         {/* Recruitment Menu */}
         <li className="relative">
           <div
@@ -101,9 +98,21 @@ const Sidebar = ({ onToggle }) => {
             )}
           </div>
 
-          {/* Recruitment Submenu with animation */}
+          {/* Recruitment Submenu */}
           {isRecruitmentSubmenuOpen && (
             <ul className="ml-4 mt-2 bg-gray-800 text-white shadow-xl rounded-lg overflow-hidden transition-all duration-300">
+              {/* Jobs Button */}
+              <li
+                className="flex justify-between items-center px-6 py-3 hover:bg-gray-700 cursor-pointer transition duration-200"
+                onClick={toggleJobsSubmenu}
+              >
+                <span>Jobs</span>
+                <FaChevronRight
+                  className={`text-sm transform transition-transform ${
+                    isJobsSubmenuOpen ? "rotate-90" : ""
+                  }`}
+                />
+              </li>
               <Link to="/candidates" className="block">
                 <li className="px-6 py-3 hover:bg-gray-700 cursor-pointer transition duration-200">
                   Candidates
@@ -120,22 +129,9 @@ const Sidebar = ({ onToggle }) => {
                 </li>
               </Link>
 
-              {/* Jobs Button */}
-              <li
-                className="flex justify-between items-center px-6 py-3 hover:bg-gray-700 cursor-pointer transition duration-200"
-                onClick={toggleJobsSubmenu}
-              >
-                <span>Jobs</span>
-                <FaChevronRight
-                  className={`text-sm transform transition-transform ${
-                    isJobsSubmenuOpen ? "rotate-90" : ""
-                  }`}
-                />
-              </li>
-
               {/* Jobs Submenu */}
               {isJobsSubmenuOpen && (
-                <ul className="absolute left-full top-32 bg-gray-900 text-white shadow-lg rounded-lg w-48 p-2">
+                <ul className="absolute left-full top-32 bg-gray-900 text-white shadow-lg rounded-lg w-48 p-2 z-50 opacity-100">
                   <Link to="/joblist" className="block">
                     <li className="px-6 py-3 hover:bg-gray-700 cursor-pointer transition duration-200">
                       All Jobs
