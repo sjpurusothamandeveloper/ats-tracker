@@ -17,10 +17,17 @@ const Jobs = () => {
 
   const validateForm = () => {
     let newErrors = {};
-    if (!formData.jobTitle) newErrors.jobTitle = true;
-    if (!formData.jobId) newErrors.jobId = true;
-    if (!formData.salaryRange) newErrors.salaryRange = true;
-    if (!formData.jobDescription) newErrors.jobDescription = true;
+    if (!formData.jobTitle) newErrors.jobTitle = "Job title is required";
+    if (!formData.jobId) newErrors.jobId = "Job ID is required";
+    if (!formData.salaryRange) newErrors.salaryRange = "Salary range is required";
+    if (!formData.jobDescription) newErrors.jobDescription = "Job description is required";
+    
+    // Optional salary range format check (you can customize the regex)
+    const salaryRegex = /^\$[0-9]{1,3}(?:,([0-9]{3}))*(?: - \$[0-9]{1,3}(?:,([0-9]{3}))*)$/;
+    if (formData.salaryRange && !salaryRegex.test(formData.salaryRange)) {
+      newErrors.salaryRange = "Please enter a valid salary range (e.g., $50,000 - $70,000)";
+    }
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -29,6 +36,8 @@ const Jobs = () => {
     e.preventDefault();
     if (validateForm()) {
       console.log("Form Data:", formData);
+      // Reset the form after submission
+      handleClear();
     }
   };
 
@@ -61,11 +70,14 @@ const Jobs = () => {
               type="text"
               name="jobTitle"
               placeholder="Enter Job Title"
-              className={`w-full border rounded-md px-3 py-2 text-sm ${
-                errors.jobTitle ? "border-red-500" : "border-gray-300"
+              className={`w-full border-2 rounded-md px-3 py-2 text-sm ${
+                errors.jobTitle ? "border-red-500" : "border-white"
               }`}
               onChange={handleChange}
             />
+            {errors.jobTitle && (
+              <p className="text-red-500 text-xs mt-1">{errors.jobTitle}</p>
+            )}
           </div>
 
           {/* Job Details */}
@@ -78,11 +90,14 @@ const Jobs = () => {
                 type="text"
                 name="jobId"
                 placeholder="Enter Job ID"
-                className={`w-full border rounded-md px-3 py-2 text-sm ${
-                  errors.jobId ? "border-red-500" : "border-gray-300"
+                className={`w-full border-2 rounded-md px-3 py-2 text-sm ${
+                  errors.jobId ? "border-red-500" : "border-white"
                 }`}
                 onChange={handleChange}
               />
+              {errors.jobId && (
+                <p className="text-red-500 text-xs mt-1">{errors.jobId}</p>
+              )}
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700">
@@ -92,11 +107,14 @@ const Jobs = () => {
                 type="text"
                 name="salaryRange"
                 placeholder="Enter Salary (e.g., $50,000 - $70,000)"
-                className={`w-full border rounded-md px-3 py-2 text-sm ${
-                  errors.salaryRange ? "border-red-500" : "border-gray-300"
+                className={`w-full border-2 rounded-md px-3 py-2 text-sm ${
+                  errors.salaryRange ? "border-red-500" : "border-white"
                 }`}
                 onChange={handleChange}
               />
+              {errors.salaryRange && (
+                <p className="text-red-500 text-xs mt-1">{errors.salaryRange}</p>
+              )}
             </div>
           </div>
 
@@ -109,11 +127,14 @@ const Jobs = () => {
               name="jobDescription"
               rows="3"
               placeholder="Enter job description"
-              className={`w-full border rounded-md px-3 py-2 text-sm ${
-                errors.jobDescription ? "border-red-500" : "border-gray-300"
+              className={`w-full border-2 rounded-md px-3 py-2 text-sm ${
+                errors.jobDescription ? "border-red-500" : "border-white"
               }`}
               onChange={handleChange}
             ></textarea>
+            {errors.jobDescription && (
+              <p className="text-red-500 text-xs mt-1">{errors.jobDescription}</p>
+            )}
           </div>
 
           {/* Buttons */}

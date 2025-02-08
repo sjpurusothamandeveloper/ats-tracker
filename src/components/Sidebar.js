@@ -44,6 +44,7 @@ const Sidebar = ({ onToggle }) => {
         setIsRecruitmentSubmenuOpen(false);
         setIsJobsSubmenuOpen(false);
         setIsCandidatesSubmenuOpen(false);
+        
       }
     };
 
@@ -214,6 +215,17 @@ const Sidebar = ({ onToggle }) => {
             {!isCollapsed && (
               <span className="ml-4 text-lg hover:text-green-400">
                 Settings
+              </span>
+            )}
+          </li>
+        </Link>
+
+        <Link to="/submission" className="block">
+          <li className="flex items-center px-4 py-3 hover:bg-gray-700 rounded-lg cursor-pointer transition duration-300">
+            <FaCog className="text-xl hover:text-green-400" />
+            {!isCollapsed && (
+              <span className="ml-4 text-lg hover:text-green-400">
+                Submissions
               </span>
             )}
           </li>

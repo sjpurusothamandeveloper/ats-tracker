@@ -13,6 +13,8 @@ import ActiveCandidates from "./pages/Candidates/ActiveCandidates";
 import InactiveCandidates from "./pages/Candidates/InactiveCandidates";
 import RecentCandidates from "./pages/Candidates/RecentCandidates";
 import CreateCandidates from "./pages/Candidates/CreateCandidates";
+import SubmissionList from "./pages/submission/SubmissionList";
+
 
 
 const App = () => {
@@ -44,15 +46,18 @@ const App = () => {
               <Route path="/" element={<Dashboard />} />
               <Route path="/job/create" element={<Jobs />} />
               <Route path="/joblist" element={<JobList />} />
-              <Route path="/activejobs" element={<ActiveJobs />} />
-              <Route path="/inactivejobs" element={<InactiveJobs />} />
               <Route path="/recentjobs" element={<RecentJobs />} />
-
+               <Route path="/activejobs" element={<ActiveJobs />} />
+              <Route path="/inactivejobs" element={<InactiveJobs />} />
+              
               <Route path="/candidate/create" element={<CreateCandidates />} />
               <Route path="/candidatelist" element={<CandidatesList />} />
               <Route path="/activecandidates" element={<ActiveCandidates />} /> 
               <Route path="/inactivecandidates" element={<InactiveCandidates />} /> 
               <Route path="/recentcandidates" element={<RecentCandidates />} />
+
+              <Route path="/submission" element={<SubmissionList />} />
+
             </Routes>
           </main>
         </div>

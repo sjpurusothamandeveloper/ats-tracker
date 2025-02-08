@@ -2,121 +2,180 @@ import React, { useState } from "react";
 
 const CreateCandidates = () => {
   const [formData, setFormData] = useState({
-    jobTitle: "",
-    jobId: "",
-    salaryRange: "",
-    jobDescription: "",
+    Id: "",
+    candidateName: "",
+    email: "",
+    mobileNumber: "",
+    experience: "",
+    ownership: "",
   });
+
   const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-    setErrors({ ...errors, [name]: "" });
   };
 
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const mobileNumberRegex = /^[0-9]{10}$/;
+
   const validateForm = () => {
-    let newErrors = {};
-    if (!formData.jobTitle) newErrors.jobTitle = true;
-    if (!formData.jobId) newErrors.jobId = true;
-    if (!formData.salaryRange) newErrors.salaryRange = true;
-    if (!formData.jobDescription) newErrors.jobDescription = true;
+    const newErrors = {};
+
+    if (!formData.Id.trim()) newErrors.Id = "ID is required";
+    if (!formData.candidateName.trim())
+      newErrors.candidateName = "Candidate Name is required";
+    if (!formData.email.trim()) newErrors.email = "Email is required";
+    else if (!emailRegex.test(formData.email))
+      newErrors.email = "Invalid email format";
+    if (!formData.mobileNumber.trim())
+      newErrors.mobileNumber = "Mobile Number is required";
+    else if (!mobileNumberRegex.test(formData.mobileNumber))
+      newErrors.mobileNumber = "Mobile Number must be 10 digits";
+    if (!formData.experience.trim())
+      newErrors.experience = "Experience is required";
+    if (!formData.ownership.trim()) newErrors.ownership = "Ownership is required";
+
     setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+    return Object.keys(newErrors).length === 0; // Returns true if no errors
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (validateForm()) {
+    const valid = validateForm();
+
+    if (valid) {
       console.log("Form Data:", formData);
     }
   };
 
   const handleClear = () => {
     setFormData({
-      jobTitle: "",
-      jobId: "",
-      salaryRange: "",
-      jobDescription: "",
+      Id: "",
+      candidateName: "",
+      email: "",
+      mobileNumber: "",
+      experience: "",
+      ownership: "",
     });
-    setErrors({});
+    setErrors({}); // Clear any error messages
   };
 
   return (
     <div className="w-full h-screen bg-gray-100 flex justify-center items-start p-8">
       <div className="w-full max-w-5xl bg-white rounded-xl shadow-lg p-8 flex flex-col">
-        {/* Page Title */}
         <div className="text-center pb-4 border-b">
           <h2 className="text-2xl font-bold text-gray-900">Add New Candidate</h2>
         </div>
+        <form className="space-y-6" onSubmit={handleSubmit}>
+          <div className="border p-4 rounded-lg">
+            <h2 className="text-lg font-bold mb-4">Candidate Details</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {/* Candidate ID */}
+              <div>
+                <label className="block text-sm font-medium mb-1">ID *</label>
+                <input
+                  type="text"
+                  name="Id"
+                  className={`w-full border rounded-lg p-3 ${
+                    errors.Id ? "border-red-500" : ""
+                  }`}
+                  onChange={handleChange}
+                  value={formData.Id}
+                />
+                {errors.Id && <p className="text-red-500 text-sm">{errors.Id}</p>}
+              </div>
 
-        {/* Form Section */}
-        <form className="space-y-6 mt-6" onSubmit={handleSubmit}>
-          {/* Job Title */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
-              Job Title *
-            </label>
-            <input
-              type="text"
-              name="jobTitle"
-              placeholder="Enter Job Title"
-              className={`w-full border rounded-md px-3 py-2 text-sm ${
-                errors.jobTitle ? "border-red-500" : "border-gray-300"
-              }`}
-              onChange={handleChange}
-            />
-          </div>
+              {/* Name */}
+              <div>
+                <label className="block text-sm font-medium mb-1">Name *</label>
+                <input
+                  type="text"
+                  name="candidateName"
+                  className={`w-full border rounded-lg p-3 ${
+                    errors.candidateName ? "border-red-500" : ""
+                  }`}
+                  onChange={handleChange}
+                  value={formData.candidateName}
+                />
+                {errors.candidateName && (
+                  <p className="text-red-500 text-sm">{errors.candidateName}</p>
+                )}
+              </div>
 
-          {/* Job Details */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div>
-              <label className="block text-sm font-medium text-gray-700">
-                Job ID *
-              </label>
-              <input
-                type="text"
-                name="jobId"
-                placeholder="Enter Job ID"
-                className={`w-full border rounded-md px-3 py-2 text-sm ${
-                  errors.jobId ? "border-red-500" : "border-gray-300"
-                }`}
-                onChange={handleChange}
-              />
+              {/* Email */}
+              <div>
+                <label className="block text-sm font-medium mb-1">Email *</label>
+                <input
+                  type="email"
+                  name="email"
+                  className={`w-full border rounded-lg p-3 ${
+                    errors.email ? "border-red-500" : ""
+                  }`}
+                  onChange={handleChange}
+                  value={formData.email}
+                />
+                {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
+              </div>
+
+              {/* Mobile Number */}
+              <div>
+                <label className="block text-sm font-medium mb-1">Mobile Number *</label>
+                <input
+                  type="tel"
+                  name="mobileNumber"
+                  className={`w-full border rounded-lg p-3 ${
+                    errors.mobileNumber ? "border-red-500" : ""
+                  }`}
+                  onChange={handleChange}
+                  value={formData.mobileNumber}
+                />
+                {errors.mobileNumber && (
+                  <p className="text-red-500 text-sm">{errors.mobileNumber}</p>
+                )}
+              </div>
+
+              {/* Experience */}
+              <div>
+                <label className="block text-sm font-medium mb-1">Experience *</label>
+                <input
+                  type="text"
+                  name="experience"
+                  className={`w-full border rounded-lg p-3 ${
+                    errors.experience ? "border-red-500" : ""
+                  }`}
+                  onChange={handleChange}
+                  value={formData.experience}
+                />
+                {errors.experience && (
+                  <p className="text-red-500 text-sm">{errors.experience}</p>
+                )}
+              </div>
+
+              {/* Ownership */}
+              <div>
+                <label className="block text-sm font-medium mb-1">Ownership *</label>
+                <select
+                  name="ownership"
+                  className={`w-full border rounded-lg p-3 ${
+                    errors.ownership ? "border-red-500" : ""
+                  }`}
+                  onChange={handleChange}
+                  value={formData.ownership}
+                >
+                  <option value="">Select Ownership</option>
+                  <option value="Full-Time">Full-Time</option>
+                  <option value="Part-Time">Part-Time</option>
+                  <option value="Freelancer">Freelancer</option>
+                </select>
+                {errors.ownership && (
+                  <p className="text-red-500 text-sm">{errors.ownership}</p>
+                )}
+              </div>
             </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700">
-                Salary Range *
-              </label>
-              <input
-                type="text"
-                name="salaryRange"
-                placeholder="Enter Salary (e.g., $50,000 - $70,000)"
-                className={`w-full border rounded-md px-3 py-2 text-sm ${
-                  errors.salaryRange ? "border-red-500" : "border-gray-300"
-                }`}
-                onChange={handleChange}
-              />
-            </div>
           </div>
 
-          {/* Job Description */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
-              Job Description *
-            </label>
-            <textarea
-              name="jobDescription"
-              rows="3"
-              placeholder="Enter job description"
-              className={`w-full border rounded-md px-3 py-2 text-sm ${
-                errors.jobDescription ? "border-red-500" : "border-gray-300"
-              }`}
-              onChange={handleChange}
-            ></textarea>
-          </div>
-
-          {/* Buttons */}
           <div className="flex justify-center space-x-4">
             <button
               type="submit"
