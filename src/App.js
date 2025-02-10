@@ -13,6 +13,7 @@ import ActiveCandidates from "./pages/Candidates/ActiveCandidates";
 import InactiveCandidates from "./pages/Candidates/InactiveCandidates";
 import RecentCandidates from "./pages/Candidates/RecentCandidates";
 import CreateCandidates from "./pages/Candidates/CreateCandidates";
+import InterviewList from "./pages/Interviews/InterviewList";
 
 
 const App = () => {
@@ -53,6 +54,8 @@ const App = () => {
               <Route path="/activecandidates" element={<ActiveCandidates />} /> 
               <Route path="/inactivecandidates" element={<InactiveCandidates />} /> 
               <Route path="/recentcandidates" element={<RecentCandidates />} />
+
+              <Route path="/interviewlist" element={<InterviewList />} />
             </Routes>
           </main>
         </div>

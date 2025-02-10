@@ -16,6 +16,7 @@ const Sidebar = ({ onToggle }) => {
   const [isRecruitmentSubmenuOpen, setIsRecruitmentSubmenuOpen] = useState(false);
   const [isJobsSubmenuOpen, setIsJobsSubmenuOpen] = useState(false);
   const [isCandidatesSubmenuOpen, setIsCandidatesSubmenuOpen] = useState(false);
+  const [isInterviewsSubmenuOpen, setIsInterviewsSubmenuOpen] = useState(false);
   const sidebarRef = useRef(null);
 
   const toggleSidebar = () => {
@@ -35,6 +36,10 @@ const Sidebar = ({ onToggle }) => {
 
   const toggleCandidatesSubMenu = () => {
     setIsCandidatesSubmenuOpen((prev) => !prev);
+  }
+
+  const toggleInterviewsSubMenu = () => {  
+    setIsInterviewsSubmenuOpen((prev) => !prev);
   }
 
   // Close menus when clicking outside
@@ -131,21 +136,17 @@ const Sidebar = ({ onToggle }) => {
                   }`}
                 />
               </li>
-              {/* <Link to="/candidates" className="block">
-                <li className="px-6 py-3 hover:bg-gray-700 cursor-pointer transition duration-200">
-                  Candidates
-                </li>
-              </Link>
-
-              <li className="px-6 py-3 hover:bg-gray-700 cursor-pointer transition duration-200">
-                Submission
+              <li
+                className="flex justify-between items-center px-6 py-3 hover:bg-gray-700 cursor-pointer transition duration-200"
+                onClick={toggleInterviewsSubMenu}
+              >
+                <span>Interviews</span>
+                <FaChevronRight
+                  className={`text-sm transform transition-transform ${
+                    isInterviewsSubmenuOpen ? "rotate-90" : ""
+                  }`}
+                />
               </li>
-
-              <Link to="/interview" className="block">
-                <li className="px-6 py-3 hover:bg-gray-700 cursor-pointer transition duration-200">
-                  Interviews
-                </li>
-              </Link> */}
 
               {/* Jobs Submenu */}
               {isJobsSubmenuOpen && (
@@ -176,6 +177,7 @@ const Sidebar = ({ onToggle }) => {
                 </ul>
               )}
 
+              {/* {Candidates Submenu} */}
               {isCandidatesSubmenuOpen && (
                 <ul className="absolute left-full top-32 bg-gray-900 text-white shadow-lg rounded-lg w-48 p-2 z-50 opacity-100">
                   <Link to="/candidatelist" className="block">
@@ -199,6 +201,35 @@ const Sidebar = ({ onToggle }) => {
                   <Link to="/recentcandidates" className="block">
                     <li className="px-6 py-3 hover:bg-gray-700 rounded-b-lg cursor-pointer transition duration-200">
                       Recent Candidates
+                    </li>
+                  </Link>
+                </ul>
+              )}
+
+              {/* Interviews Submenu */}
+              {isInterviewsSubmenuOpen && (
+                <ul className="absolute left-full top-32 bg-gray-900 text-white shadow-lg rounded-lg w-48 p-2 z-50 opacity-100">
+                  <Link to="/interviewlist" className="block">
+                    <li className="px-6 py-3 hover:bg-gray-700 cursor-pointer transition duration-200">
+                      All Interviews
+                    </li>
+                  </Link>
+
+                  <Link to="/activejobs" className="block">
+                    <li className="px-6 py-3 hover:bg-gray-700 cursor-pointer transition duration-200">
+                      My Interviews
+                    </li>
+                  </Link>
+
+                  <Link to="/inactivejobs" className="block">
+                    <li className="px-6 py-3 hover:bg-gray-700 cursor-pointer transition duration-200">
+                      Active Interviews
+                    </li>
+                  </Link>
+
+                  <Link to="/recentjobs" className="block">
+                    <li className="px-6 py-3 hover:bg-gray-700 rounded-b-lg cursor-pointer transition duration-200">
+                      Create New!
                     </li>
                   </Link>
                 </ul>

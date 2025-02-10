@@ -8,7 +8,7 @@ const Dashboard = () => {
 
   return (
     <div className="flex">
-      <Sidebar onToggle={setIsSidebarCollapsed} />
+      {/* <Sidebar onToggle={setIsSidebarCollapsed} /> */}
       <div className="flex-1 flex flex-col ml-64">
         <TopNavbar />
         <MainContent />
