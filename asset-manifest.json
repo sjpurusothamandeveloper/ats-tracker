@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/ats-tracker/static/css/main.256268aa.css",
+    "main.js": "/ats-tracker/static/js/main.4a499fd3.js",
+    "static/js/727.93140e9d.chunk.js": "/ats-tracker/static/js/727.93140e9d.chunk.js",
+    "index.html": "/ats-tracker/index.html",
+    "main.256268aa.css.map": "/ats-tracker/static/css/main.256268aa.css.map",
+    "main.4a499fd3.js.map": "/ats-tracker/static/js/main.4a499fd3.js.map",
+    "727.93140e9d.chunk.js.map": "/ats-tracker/static/js/727.93140e9d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.256268aa.css",
+    "static/js/main.4a499fd3.js"
+  ]
+}
