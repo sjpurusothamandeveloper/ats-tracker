@@ -78,7 +78,7 @@ const Sidebar = ({ onToggle }) => {
       {/* Sidebar Menu Items */}
       <ul className="relative mt-6 space-y-1">
         {/* Home Menu */}
-        <Link to="/" className="block">
+        <Link to="/ats-tracker" className="block">
           <li className="flex items-center px-4 py-3 hover:bg-gray-700 rounded-lg cursor-pointer transition duration-300">
             <FaHome className="text-xl hover:text-green-400" />
             {!isCollapsed && (
@@ -227,11 +227,11 @@ const Sidebar = ({ onToggle }) => {
                     </li>
                   </Link>
 
-                  <Link to="/recentjobs" className="block">
+                  {/* <Link to="/recentjobs" className="block">
                     <li className="px-6 py-3 hover:bg-gray-700 rounded-b-lg cursor-pointer transition duration-200">
                       Create New!
                     </li>
-                  </Link>
+                  </Link> */}
                 </ul>
               )}
             </ul>

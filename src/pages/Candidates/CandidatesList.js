@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { FaPlusCircle, FaEye, FaEdit } from "react-icons/fa";
 
-// Sample job data
+// Sample candidate data
 const sampleCandidates = [
   { id: 1, name: "SJ Purusothaman", description: "Junior Developer", count: 1 },
   { id: 2, name: "Raksana Banu", description: "Web Designer", count: 10 },
@@ -15,47 +16,48 @@ const CandidatesList = () => {
   const [candidates, setCandidates] = useState(sampleCandidates);
 
   const handleCreateCandidates = () => {
-    navigate("/candidate/create")
-  }
+    navigate("/candidate/create");
+  };
 
   return (
-    <div className="w-full min-h-screen bg-gray-100 flex justify-center items-start p-8 overflow-hidden">
-      {/* White Card - Dynamic Height Without Scrollbar */}
-      <div className="w-full max-w-7xl bg-white rounded-xl shadow-lg p-8 flex flex-col">
+    <div className="w-full min-h-screen bg-gray-100 flex justify-center items-start p-8">
+      {/* Container */}
+      <div className="w-full max-w-6xl bg-white rounded-xl shadow-xl p-8 flex flex-col">
         {/* Header */}
-        <div className="text-left pb-4 border-b">
-          <h2 className="text-xl font-bold text-gray-900">#Candidates</h2>
-        </div>
-
-        {/* Add Candidate Button */}
-        <div className="flex justify-end mt-4">
-          <button 
-          className="bg-black text-white py-1 px-6 rounded-lg shadow-md hover:bg-gray-900 transform hover:scale-105 transition duration-300 ease-in-out"
-          onClick={() => handleCreateCandidates()}
+        <div className="flex justify-between items-center pb-4 border-b bg-black text-white rounded-t-xl px-6 py-4">
+          <h2 className="text-2xl font-bold"># Candidates</h2>
+          {/* Add Candidate Button */}
+          <button
+            className="bg-white text-black py-2 px-6 rounded-lg flex items-center gap-2 shadow-md hover:bg-gray-200 transform hover:scale-105 transition duration-300 ease-in-out"
+            onClick={handleCreateCandidates}
           >
-            + Add Candidate
+            <FaPlusCircle size={18} />
+            Add Candidate
           </button>
         </div>
 
         {/* Candidate List */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
-          {candidates.map((job) => (
+          {candidates.map((candidate) => (
             <div
-              key={job.id}
-              className="bg-gray-50 border rounded-lg shadow p-5 hover:shadow-md transition duration-300"
+              key={candidate.id}
+              className="bg-white border border-gray-200 rounded-lg shadow-sm p-6 hover:shadow-lg transform hover:scale-105 transition duration-300 ease-in-out"
             >
-              <h3 className="text-xl font-semibold text-gray-900">{job.name}</h3>
-
-              <p className="text-gray-600 text-sm mt-2">{job.description}</p>
+              <h3 className="text-xl font-semibold text-gray-900">{candidate.name}</h3>
+              <p className="text-gray-600 text-sm mt-2">{candidate.description}</p>
 
               <div className="flex justify-between items-center mt-4">
-                <span className="text-gray-700 text-sm font-medium">{job.count} Year</span>
+                <span className="text-gray-700 text-sm font-medium">
+                  {candidate.count} {candidate.count === 1 ? "Year" : "Years"}
+                </span>
 
                 <div className="flex space-x-4">
-                  <button className="text-black underline text-sm hover:text-gray-800 transition duration-300">
+                  <button className="flex items-center gap-1 text-black text-sm font-medium hover:text-gray-800 transition duration-300">
+                    <FaEye size={14} />
                     View
                   </button>
-                  <button className="text-black underline text-sm hover:text-gray-800 transition duration-300">
+                  <button className="flex items-center gap-1 text-black text-sm font-medium hover:text-gray-800 transition duration-300">
+                    <FaEdit size={14} />
                     Edit
                   </button>
                 </div>

@@ -3,11 +3,41 @@ import { useNavigate } from "react-router-dom";
 
 // Sample job data with status
 const sampleCandidates = [
-  { id: 1, name: "SJ Purusothaman", description: "Junior Developer", count: 1, status: "Active" },
-  { id: 2, name: "Raksana Banu", description: "Web Designer", count: 10, status: "Active" },
-  { id: 3, name: "Sriram", description: "UX Designer", count: 3, status: "Active" },
-  { id: 4, name: "Mohan", description: "Project Manager", count: 7, status: "Active" },
-  { id: 5, name: "Bhargava", description: "Data Analyst", count: 4, status: "Active" },
+  {
+    id: 1,
+    name: "SJ Purusothaman",
+    description: "Junior Developer",
+    count: 1,
+    status: "Active",
+  },
+  {
+    id: 2,
+    name: "Raksana Banu",
+    description: "Web Designer",
+    count: 10,
+    status: "Active",
+  },
+  {
+    id: 3,
+    name: "Sriram",
+    description: "UX Designer",
+    count: 3,
+    status: "Active",
+  },
+  {
+    id: 4,
+    name: "Mohan",
+    description: "Project Manager",
+    count: 7,
+    status: "Active",
+  },
+  {
+    id: 5,
+    name: "Bhargava",
+    description: "Data Analyst",
+    count: 4,
+    status: "Active",
+  },
 ];
 
 const ActiveCandidates = () => {
@@ -21,15 +51,15 @@ const ActiveCandidates = () => {
   return (
     <div className="w-full min-h-screen bg-gray-100 flex justify-center items-start p-8 overflow-hidden">
       <div className="w-full max-w-7xl bg-white rounded-xl shadow-lg p-8 flex flex-col">
-        <div className="text-left pb-4 border-b">
-          <h2 className="text-xl font-bold text-gray-900">#Active Cantidates</h2>
+        <div className="flex justify-between items-center pb-4 border-b bg-black text-white rounded-t-xl px-6 py-4">
+          <h2 className="text-2xl font-bold">#Active Candidates</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
           {candidates.map((job) => (
             <div
               key={job.id}
-              className="bg-gray-50 border rounded-lg shadow p-5 hover:shadow-md transition duration-300 relative"
+              className="bg-gray-50 border rounded-lg shadow p-5 hover:shadow-md transition duration-300 relative hover:shadow-lg transform hover:scale-105 transition duration-300 ease-in-out"
             >
               <span
                 className={`absolute top-3 right-3 px-2 py-0.5 text-[8px] font-bold uppercase rounded-full ${
