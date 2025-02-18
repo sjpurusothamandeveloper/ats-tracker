@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import TopNavbar from "./components/TopNavbar";
@@ -13,8 +13,10 @@ import ActiveCandidates from "./pages/Candidates/ActiveCandidates";
 import InactiveCandidates from "./pages/Candidates/InactiveCandidates";
 import RecentCandidates from "./pages/Candidates/RecentCandidates";
 import CreateCandidates from "./pages/Candidates/CreateCandidates";
-import InterviewList from "./pages/Interviews/InterviewList";
+// import InterviewList from "./pages/Interviews/InterviewList";
 
+
+const InterviewList = lazy(() => import("./pages/Interviews/InterviewList"));
 
 const App = () => {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
@@ -40,23 +42,25 @@ const App = () => {
 
           {/* Main Content */}
           <main className="p-6">
-            <Routes>
+            <Suspense fallback={<div>Loading Page...</div>}>
+              <Routes>
 
-              <Route path="/" element={<Dashboard />} />
-              <Route path="/job/create" element={<Jobs />} />
-              <Route path="/joblist" element={<JobList />} />
-              <Route path="/activejobs" element={<ActiveJobs />} />
-              <Route path="/inactivejobs" element={<InactiveJobs />} />
-              <Route path="/recentjobs" element={<RecentJobs />} />
+                <Route path="/" element={<Dashboard />} />
+                <Route path="/job/create" element={<Jobs />} />
+                <Route path="/joblist" element={<JobList />} />
+                <Route path="/activejobs" element={<ActiveJobs />} />
+                <Route path="/inactivejobs" element={<InactiveJobs />} />
+                <Route path="/recentjobs" element={<RecentJobs />} />
 
-              <Route path="/candidate/create" element={<CreateCandidates />} />
-              <Route path="/candidatelist" element={<CandidatesList />} />
-              <Route path="/activecandidates" element={<ActiveCandidates />} /> 
-              <Route path="/inactivecandidates" element={<InactiveCandidates />} /> 
-              <Route path="/recentcandidates" element={<RecentCandidates />} />
+                <Route path="/candidate/create" element={<CreateCandidates />} />
+                <Route path="/candidatelist" element={<CandidatesList />} />
+                <Route path="/activecandidates" element={<ActiveCandidates />} /> 
+                <Route path="/inactivecandidates" element={<InactiveCandidates />} /> 
+                <Route path="/recentcandidates" element={<RecentCandidates />} />
 
-              <Route path="/interviewlist" element={<InterviewList />} />
-            </Routes>
+                <Route path="/interviewlist" element={<InterviewList />} />
+              </Routes>
+            </Suspense>
           </main>
         </div>
       </div>
