@@ -1,15 +1,45 @@
 {
   "files": {
-    "main.css": "/ats-tracker/static/css/main.256268aa.css",
-    "main.js": "/ats-tracker/static/js/main.4a499fd3.js",
-    "static/js/727.93140e9d.chunk.js": "/ats-tracker/static/js/727.93140e9d.chunk.js",
+    "main.css": "/ats-tracker/static/css/main.a39f0dda.css",
+    "main.js": "/ats-tracker/static/js/main.f674c2fe.js",
+    "static/js/421.7c731b10.chunk.js": "/ats-tracker/static/js/421.7c731b10.chunk.js",
+    "static/js/916.d07f1626.chunk.js": "/ats-tracker/static/js/916.d07f1626.chunk.js",
+    "static/js/479.42736377.chunk.js": "/ats-tracker/static/js/479.42736377.chunk.js",
+    "static/js/991.5980f34a.chunk.js": "/ats-tracker/static/js/991.5980f34a.chunk.js",
+    "static/js/903.4f978e78.chunk.js": "/ats-tracker/static/js/903.4f978e78.chunk.js",
+    "static/js/424.833e5d15.chunk.js": "/ats-tracker/static/js/424.833e5d15.chunk.js",
+    "static/js/187.5c22c73e.chunk.js": "/ats-tracker/static/js/187.5c22c73e.chunk.js",
+    "static/js/925.61c7e64b.chunk.js": "/ats-tracker/static/js/925.61c7e64b.chunk.js",
+    "static/js/274.b7d85ff3.chunk.js": "/ats-tracker/static/js/274.b7d85ff3.chunk.js",
+    "static/js/774.d3e9af75.chunk.js": "/ats-tracker/static/js/774.d3e9af75.chunk.js",
+    "static/js/128.6822ae03.chunk.js": "/ats-tracker/static/js/128.6822ae03.chunk.js",
+    "static/js/463.1fdbd5ed.chunk.js": "/ats-tracker/static/js/463.1fdbd5ed.chunk.js",
+    "static/js/149.c1c52359.chunk.js": "/ats-tracker/static/js/149.c1c52359.chunk.js",
+    "static/js/727.f1e2164d.chunk.js": "/ats-tracker/static/js/727.f1e2164d.chunk.js",
+    "static/js/204.975e4f5f.chunk.js": "/ats-tracker/static/js/204.975e4f5f.chunk.js",
+    "static/js/978.ea2e6790.chunk.js": "/ats-tracker/static/js/978.ea2e6790.chunk.js",
     "index.html": "/ats-tracker/index.html",
-    "main.256268aa.css.map": "/ats-tracker/static/css/main.256268aa.css.map",
-    "main.4a499fd3.js.map": "/ats-tracker/static/js/main.4a499fd3.js.map",
-    "727.93140e9d.chunk.js.map": "/ats-tracker/static/js/727.93140e9d.chunk.js.map"
+    "main.a39f0dda.css.map": "/ats-tracker/static/css/main.a39f0dda.css.map",
+    "main.f674c2fe.js.map": "/ats-tracker/static/js/main.f674c2fe.js.map",
+    "421.7c731b10.chunk.js.map": "/ats-tracker/static/js/421.7c731b10.chunk.js.map",
+    "916.d07f1626.chunk.js.map": "/ats-tracker/static/js/916.d07f1626.chunk.js.map",
+    "479.42736377.chunk.js.map": "/ats-tracker/static/js/479.42736377.chunk.js.map",
+    "991.5980f34a.chunk.js.map": "/ats-tracker/static/js/991.5980f34a.chunk.js.map",
+    "903.4f978e78.chunk.js.map": "/ats-tracker/static/js/903.4f978e78.chunk.js.map",
+    "424.833e5d15.chunk.js.map": "/ats-tracker/static/js/424.833e5d15.chunk.js.map",
+    "187.5c22c73e.chunk.js.map": "/ats-tracker/static/js/187.5c22c73e.chunk.js.map",
+    "925.61c7e64b.chunk.js.map": "/ats-tracker/static/js/925.61c7e64b.chunk.js.map",
+    "274.b7d85ff3.chunk.js.map": "/ats-tracker/static/js/274.b7d85ff3.chunk.js.map",
+    "774.d3e9af75.chunk.js.map": "/ats-tracker/static/js/774.d3e9af75.chunk.js.map",
+    "128.6822ae03.chunk.js.map": "/ats-tracker/static/js/128.6822ae03.chunk.js.map",
+    "463.1fdbd5ed.chunk.js.map": "/ats-tracker/static/js/463.1fdbd5ed.chunk.js.map",
+    "149.c1c52359.chunk.js.map": "/ats-tracker/static/js/149.c1c52359.chunk.js.map",
+    "727.f1e2164d.chunk.js.map": "/ats-tracker/static/js/727.f1e2164d.chunk.js.map",
+    "204.975e4f5f.chunk.js.map": "/ats-tracker/static/js/204.975e4f5f.chunk.js.map",
+    "978.ea2e6790.chunk.js.map": "/ats-tracker/static/js/978.ea2e6790.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.256268aa.css",
-    "static/js/main.4a499fd3.js"
+    "static/css/main.a39f0dda.css",
+    "static/js/main.f674c2fe.js"
   ]
 }
