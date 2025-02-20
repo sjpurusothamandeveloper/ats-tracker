@@ -15,6 +15,7 @@ import RecentCandidates from "./pages/Candidates/RecentCandidates";
 import CreateCandidates from "./pages/Candidates/CreateCandidates";
 import SubmissionList from "./pages/submission/SubmissionList";
 
+import InterviewList from "./pages/Interviews/InterviewList";
 
 
 const App = () => {
@@ -58,6 +59,7 @@ const App = () => {
 
               <Route path="/submission" element={<SubmissionList />} />
 
+              <Route path="/interviewlist" element={<InterviewList />} />
             </Routes>
           </main>
         </div>
